@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :restaurants do
-    # /restaurants/:id/reviews/new
+    # If inside the block, this means that it is a NESTED resource
+    # Which means:
+    # It starts with parent_resources/:parent_resources_id/the-normal-route
+    # /restaurants/:restaurant_id/reviews
     resources :reviews, only: [:new, :create]
 
     # /restaurants/whatever-you-write-inside-the-collection-block
